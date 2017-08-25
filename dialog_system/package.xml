@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<package>
+  <name>dialog_system</name>
+  <version>0.0.0</version>
+  <description>The knowrob_dialog package</description>
+
+  <!-- One maintainer tag required, multiple allowed, one person per tag --> 
+  <!-- Example:  -->
+  <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
+  <maintainer email="sascha@todo.todo">sascha</maintainer>
+
+
+  <!-- One license tag required, multiple allowed, one license per tag -->
+  <!-- Commonly used license strings: -->
+  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
+  <license>TODO</license>
+
+
+  <!-- Url tags are optional, but multiple are allowed, one per tag -->
+  <!-- Optional attribute type can be: website, bugtracker, or repository -->
+  <!-- Example: -->
+  <!-- <url type="website">http://wiki.ros.org/knowrob_dialog</url> -->
+
+
+  <!-- Author tags are optional, multiple are allowed, one per tag -->
+  <!-- Authors do not have to be maintainers, but could be -->
+  <!-- Example: -->
+  <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
+
+
+  <!-- The *_depend tags are used to specify dependencies -->
+  <!-- Dependencies can be catkin packages or system dependencies -->
+  <!-- Examples: -->
+  <!-- Use build_depend for packages you need at compile time: -->
+  <!--   <build_depend>message_generation</build_depend> -->
+  <!-- Use buildtool_depend for build tool packages: -->
+  <!--   <buildtool_depend>catkin</buildtool_depend> -->
+  <!-- Use run_depend for packages you need at runtime: -->
+  <!--   <run_depend>message_runtime</run_depend> -->
+  <!-- Use test_depend for packages you need only for testing: -->
+  <!--   <test_depend>gtest</test_depend> -->
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>knowrob_common</build_depend>
+  <build_depend>json_prolog</build_depend>
+  <build_depend>json_prolog_msgs</build_depend>
+  <run_depend>sys</run_depend>
+  <run_depend>roslib</run_depend>
+  <!-- git https://github.com/ros-naoqi/naoqi_bridge_msgs.git --> 
+  <!-- package naoqi(nao driver) is downloadable from Aldebaran website -->
+  <!-- under the name pynaoqi-python2.7-2.1.4.13-linux64 -->
+  <run_depend>message_runtime</run_depend>
+  <run_depend>SimpleXMLRPCServer</run_depend>
+  <run_depend>xmlrpclib</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>numpy</run_depend>
+  <run_depend>socket</run_depend>
+  <run_depend>fcntl</run_depend>
+  <run_depend>struct</run_depend>
+  <run_depend>time</run_depend>
+  <run_depend>subprocess</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>knowrob_common</run_depend>
+  <run_depend>json_prolog</run_depend>
+  <run_depend>json_prolog_msgs</run_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>

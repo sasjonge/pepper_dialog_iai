@@ -1,0 +1,23 @@
+<launch>
+ <param name="busy" value="0"/>
+
+ <param name="receiving" value="0"/>
+
+ <param name="PEPPERPORT" value="9559"/>
+ <param name="PEPPERIP" value="192.168.101.69"/>
+
+ <param name="RPCSERVERPORT" value="8000"/>
+ <param name="RPCSERVERIP" value="192.168.101.123"/>
+
+ <param name="RHOST" value="192.168.101.69"/>
+ <param name="RUSERNAME" value="nao"/>
+ <param name="RPASSWORD" value="iai" />
+ <param name="RPORT" value="22"/>
+
+ <node name="synthetiser" pkg="pepper_dialog_system" type="pepper_control.py" output="screen">
+ </node>
+
+ <node name="gstreamer_sphinx" pkg="pepper_dialog_system" type="gstreamer_sphinx.py" output="screen">
+ </node>
+
+</launch>
