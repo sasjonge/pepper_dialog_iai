@@ -1,0 +1,20 @@
+<launch>
+ <param name="TABLETSLEEPTIME" value="10"/>
+
+ <param name="PEPPERPORT" value="9559"/>
+ <param name="PEPPERIP" value="192.168.101.69"/>
+
+ <param name="RHOST" value="192.168.101.69"/>
+ <param name="RUSERNAME" value="nao"/>
+ <param name="RPASSWORD" value="iai" />
+ <param name="RPORT" value="22"/>
+
+  <include file="$(find dialog_system)/launch/dialog.launch" />
+
+ <node name="pepper_dialog_wrapper" pkg="pepper_dialog_system" type="pepper_dialog_wrapper.py" output="screen">
+ </node>
+
+ <node name="gstreamer_sphinx" pkg="pepper_dialog_system" type="gstreamer_sphinx.py" output="screen">
+ </node>
+
+</launch>

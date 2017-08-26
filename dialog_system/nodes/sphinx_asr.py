@@ -36,7 +36,7 @@ class AsrSphinx:
         self.ASRPROCESS=subprocess.Popen([self.ASRPATH,str(self.INDEX),str(self.NBTHREADS),str(self.BEAMSIZE),str(self.HOST),str(self.PORT),str(self.DATAPATH),str(self.ASRCWD),str(self.RPCPORT),str(self.TRESHOLD),str(self.HMM),str(self.MLLR)],cwd=self.ASRCWD)   
         rospy.loginfo("Started in sphinx asr node...")
         rospy.sleep(10) 
-        rospy.set_param("ORDER", "1")
+        rospy.set_param("ASRRUNNING", "1")
         self.sleep()
       except:
         rospy.loginfo("Error in sphinx asr node...") 

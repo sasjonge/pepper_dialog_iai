@@ -3,7 +3,6 @@ import paramiko
 import rospy
 import roslib
 from std_msgs.msg import String
-import utility as u
 import  paramiko.client as pc
 # Create ros-server-node and rpc-server for Pepper 
 
@@ -34,9 +33,9 @@ class GstSphinx:
         rospy.loginfo("connect to remote host...")
         self.command="gst-launch-0.10 pulsesrc "+" ! 'audio/x-raw-int, format=S16LE, channels=1, width=16, depth=16,rate=16000' ! "+"tcpclientsink port="+str(self.PORT)+" host="+str(self.HOST)
         #wait until gstreamer-server started before starting the client
-        while int(rospy.get_param("ORDER", "0"))!=1:
-              rospy.loginfo("loop ...")
-              rospy.sleep(10) 
+        while int(rospy.get_param("ASRRUNNING", "0"))!=1:
+              rospy.loginfo("Waiting for ASR to run...")
+              rospy.sleep(2) 
         self.stdin, self.stdout, self.stderr =self.client.exec_command(self.command)
         rospy.loginfo("execute command...")
         rospy.loginfo("output: "+str(self.stdout.read()))

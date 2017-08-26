@@ -9,21 +9,18 @@ from std_msgs.msg import String
 import subprocess
 from json_prolog import json_prolog
 from dialog_system.msg import DialogResponse
+from dialog_system.msg import DialogResponses
 
-#Here is a client for core management of dialogue
-
-
-SELF_CLIENT_SOCKET=''
 
 class DialogCoreClientManager(object):
    def __init__(self):
 
         #constants to mark begin and end of discussions
-        rospy.init_node('dialogManager')
+        rospy.init_node('dialog_manager')
         rospy.on_shutdown(self.cleanup)
         rospy.loginfo("Starting core server manager node...")
         #Publisher
-        self.respub=rospy.Publisher('~dialogResponse',DialogResponse,queue_size=1000)
+        self.respub=rospy.Publisher('~dialog_responses',DialogResponses,queue_size=1000)
         # Subscriber
         rospy.Subscriber('/rpc_server/recognition', String, self.process)
         #chartscript server
@@ -41,20 +38,27 @@ class DialogCoreClientManager(object):
         query = self.prolog.query('pepper_answer(\''+msg.data+'\',Answer,Animation,Picture)')
 
         for solution in query.solutions():
+            resmsg = DialogResponses()
+            msgcreated = False
             if (solution['Picture'] and solution['Picture'][0] != '_'):
-                resmsg = DialogResponse()
-                resmsg.type = DialogResponse.PICTURE
-                resmsg.value = solution['Picture']
-                self.respub.publish(resmsg)
+                picmsg = DialogResponse()
+                picmsg.type = DialogResponse.PICTURE
+                picmsg.value = solution['Picture']
+                msgcreated = True
+                resmsg.responses.append(picmsg)
             if (solution['Answer'] and solution['Answer'][0] != '_'):
-                resmsg = DialogResponse()
-                resmsg.type = DialogResponse.ANSWER
-                resmsg.value = solution['Answer']
-                self.respub.publish(resmsg)
+                ansmsg = DialogResponse()
+                ansmsg.type = DialogResponse.ANSWER
+                ansmsg.value = solution['Answer']
+                msgcreated = True
+                resmsg.responses.append(ansmsg)
             if (solution['Animation'] and solution['Animation'][0] != '_'):
-                resmsg = DialogResponse()
-                resmsg.type = DialogResponse.ANIMATION
-                resmsg.value = solution['Animation']
+                animsg = DialogResponse()
+                animsg.type = DialogResponse.ANIMATION
+                animsg.value = solution['Animation']
+                resmsg.responses.append(animsg)
+                msgcreated = True
+            if msgcreated:
                 self.respub.publish(resmsg)
             rospy.loginfo('Found prolog solution')
 

@@ -16,6 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   DialogResponse.msg
+  DialogResponses.msg
 )
 
 ## Generate added messages and services with any dependencies listed here
@@ -29,7 +30,7 @@ catkin_package(
 
 catkin_install_python(PROGRAMS ./nodes/rpc_server.py
                                ./nodes/sphinx_asr.py
-                               ./nodes/dialogManager.py
+                               ./nodes/dialog_manager.py
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

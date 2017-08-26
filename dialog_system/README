@@ -1,3 +1,5 @@
 To test this module without a wrapper like the pepper_dialog_system, you can redirect the input of your microphone with gstreamer to the HOST IP from the launch file, like this:
 
 gst-launch-0.10 alsasrc ! 'audio/x-raw-int, format=S16LE, channels=1, width=16, depth=16,rate=16000' ! tcpclientsink port=7000 host=192.168.178.38
+
+You also need to set the parameter ORDER in the launch file to 1

@@ -9,7 +9,7 @@
   <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>
-  
+  <build_depend>dialog_system</build_depend>
   <run_depend>sys</run_depend>
   <run_depend>roslib</run_depend>
   <!-- git https://github.com/ros-naoqi/naoqi_bridge_msgs.git --> 
@@ -27,6 +27,7 @@
   <run_depend>struct</run_depend>
   <run_depend>time</run_depend>
   <run_depend>subprocess</run_depend>
+  <run_depend>dialog_system</run_depend>
   <!-- For integration of ChatScript:git https://github.com/bwilcox-1234/ChatScript -->
  
 

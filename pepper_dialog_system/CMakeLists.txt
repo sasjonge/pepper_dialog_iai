@@ -9,8 +9,7 @@ catkin_package(
 )
 
 catkin_install_python(PROGRAMS ./nodes/gstreamer_sphinx.py
-                               ./nodes/speechRecognizer.py
-                               ./nodes/nao_speech.py 
+                               ./nodes/pepper_dialog_wrapper.py
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
